@@ -50,7 +50,7 @@ girls = get_student('girl')
 # Listing Students ------------------------------------------------------------------------
 students = boys | girls
 # Chunking students into groups of 3
-chunk_size = 4
+chunk_size = 2
 chunks = [list(students.items())[i:i + chunk_size] for i in range(0, len(students), chunk_size)]
 
 # Displaying students in a grid layout
