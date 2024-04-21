@@ -3,6 +3,8 @@ from openpyxl import load_workbook
 from deta import Deta
 import io
 
+st.set_page_config(page_title='Student\'s Stat', page_icon="🤨")
+
 '# Student\'s Stat'
 '#'
 
