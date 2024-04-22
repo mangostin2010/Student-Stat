@@ -6,7 +6,7 @@ import io
 st.set_page_config(page_title='Student\'s Stat', page_icon="🤨")
 
 '# Student\'s Stat'
-'#'
+st.selectbox('Sort by', ['Boys & Girls', 'Average', 'Finished PACEs'])
 
 DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
 deta = Deta(DETA_KEY)
