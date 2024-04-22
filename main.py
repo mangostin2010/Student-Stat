@@ -6,7 +6,7 @@ import io
 st.set_page_config(page_title='Student\'s Stat', page_icon="🤨")
 
 '# Student\'s Stat'
-st.selectbox('Sort by', ['Boys & Girls', 'Average', 'Finished PACEs'])
+sort_type = st.selectbox('Sort by', ['Boys & Girls', 'Average', 'Finished PACEs'])
 
 DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
 deta = Deta(DETA_KEY)
@@ -46,9 +46,12 @@ def get_student(sex):
 
 boys = get_student('boy')
 girls = get_student('girl')
-
-# Listing Students ------------------------------------------------------------------------
 students = boys | girls
+if sort_type == 'Average':
+    students = dict(sorted(students.items()[0]))
+    
+# Listing Students ------------------------------------------------------------------------
+
 # Chunking students into groups of 3
 chunk_size = 3
 chunks = [list(students.items())[i:i + chunk_size] for i in range(0, len(students), chunk_size)]
