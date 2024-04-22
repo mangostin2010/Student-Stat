@@ -48,8 +48,8 @@ boys = get_student('boy')
 girls = get_student('girl')
 students = boys | girls
 if sort_type == 'Average':
-    students = dict(sorted(students.items()[0]))
-    
+    #students = dict(sorted(students.items()))
+    sorted(students.items())
 # Listing Students ------------------------------------------------------------------------
 
 # Chunking students into groups of 3
