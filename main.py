@@ -50,7 +50,7 @@ students = boys | girls
 if sort_type == 'Average':
     #students = dict(sorted(students.items()))
     st.write(str(sorted(students.items())))
-    myKeys = list(myDict.keys())
+    myKeys = list(students.keys())
     myKeys.sort()
     st.write(str(myKeys))
 # Listing Students ------------------------------------------------------------------------
