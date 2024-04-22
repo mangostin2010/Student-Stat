@@ -49,9 +49,7 @@ girls = get_student('girl')
 students = boys | girls
 if sort_type == 'Average':
     #students = dict(sorted(students.items()))
-    st.write(str(sorted(students.items())))
-    myKeys = list(students.keys())
-    st.write(myKeys)
+    dict(sorted(x.items(), key=lambda item: students[1]))
 # Listing Students ------------------------------------------------------------------------
 
 # Chunking students into groups of 3
