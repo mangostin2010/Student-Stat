@@ -49,7 +49,7 @@ girls = get_student('girl')
 students = boys | girls
 if sort_type == 'Average':
     #students = dict(sorted(students.items()))
-    st.write(dict(sorted(x.items()[0], key=lambda item: students[1])))
+    st.write(sorted_students = {k: v for k, v in sorted(students.items(), key=lambda item: item[1][0], reverse=True)})
     #st.error('Developing')
 # Listing Students ------------------------------------------------------------------------
 
