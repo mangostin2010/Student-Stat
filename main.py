@@ -46,12 +46,13 @@ def get_student(sex):
 
 boys = get_student('boy')
 girls = get_student('girl')
-students = boys | girls
-if sort_type == 'Average':
-    #students = dict(sorted(students.items()))
-    st.error('Still in developing...')
-    st.write({k: v for k, v in sorted(students.items(), key=lambda item: item[1][0], reverse=True)})
-    #st.error('Developing')
+students_original = boys | girls
+if sort_type == 'Boys & Girls':
+    students = students_original
+elif sort_type == 'Average':
+    students = {k: v for k, v in sorted(students_original.items(), key=lambda item: item[1][0], reverse=True)}
+elif sort_type == 'Finished PACEs':
+    students = {k: v for k, v in sorted(students_original.items(), key=lambda item: item[1][1], reverse=True)}
 # Listing Students ------------------------------------------------------------------------
 
 # Chunking students into groups of 3
