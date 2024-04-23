@@ -8,15 +8,16 @@ st.set_page_config(page_title='Student\'s Stat', page_icon="🤨")
 '# Student\'s Stat'
 sort_type = st.selectbox('Sort by', ['Boys & Girls', 'Average', 'Finished PACEs'])
 
-DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
-deta = Deta(DETA_KEY)
-db = deta.Drive("Leaking")
-
-file_list = db.list()["names"]
-
-for x in file_list:
-    file = db.get(x)
-    file_stream = io.BytesIO(file.read())
+if 'downloaded' not in st.session_state:
+    DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
+    deta = Deta(DETA_KEY)
+    db = deta.Drive("Leaking")
+    
+    file_list = db.list()["names"]
+    
+    for x in file_list:
+        file = db.get(x)
+        file_stream = io.BytesIO(file.read())
 
 load_wb = load_workbook(file_stream, data_only=True)
 # 시트 이름으로 불러오기 
