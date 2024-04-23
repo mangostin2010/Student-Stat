@@ -49,7 +49,7 @@ if 'downloaded' not in st.session_state:
     girls = get_student('girl')
     st.session_state.students_original = boys | girls
     st.session_state.downloaded = True
-students = st.session_state.students_original
+students_original = st.session_state.students_original
 if sort_type == 'Boys & Girls':
     students = students_original
 elif sort_type == 'Average':
