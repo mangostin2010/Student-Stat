@@ -47,9 +47,9 @@ if 'downloaded' not in st.session_state:
     
     boys = get_student('boy')
     girls = get_student('girl')
-    global students_original
-    students_original = boys | girls
+    st.session_state.students_original = students_original = boys | girls
     st.session_state.downloaded = True
+students_original = st.session_state.students_original
 if sort_type == 'Boys & Girls':
     students = students_original
 elif sort_type == 'Average':
