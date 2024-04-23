@@ -19,9 +19,9 @@ if 'downloaded' not in st.session_state:
         file = db.get(x)
         file_stream = io.BytesIO(file.read())
 
-load_wb = load_workbook(file_stream, data_only=True)
-# 시트 이름으로 불러오기 
-load_ws = load_wb['Spring 2024']
+    load_wb = load_workbook(file_stream, data_only=True)
+    # 시트 이름으로 불러오기 
+    load_ws = load_wb['Spring 2024']
 
 
 def get_student(sex):
