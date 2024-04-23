@@ -47,6 +47,7 @@ if 'downloaded' not in st.session_state:
     
     boys = get_student('boy')
     girls = get_student('girl')
+    global students_original
     students_original = boys | girls
     st.session_state.downloaded = True
 if sort_type == 'Boys & Girls':
