@@ -23,31 +23,32 @@ if 'downloaded' not in st.session_state:
     # 시트 이름으로 불러오기 
     load_ws = load_wb['Spring 2024']
 
-
-def get_student(sex):
-    students = {}
-    if sex == "boy":
-        words = ["M", "K", "A"]
-        number_of_student = 5
-    else:
-        words = ["Z", "X", "N"]
-        number_of_student = 4
-
-    i = 2
-    # 남학생 이름 모두 출력
-    for x in range(number_of_student): # 남학생이 5명 이므로 5번
-        if load_ws[f'{words[0]}{i+10}'].value != None:
-            average = round(load_ws[words[0] + str(i+10)].value, 1)
+    
+    def get_student(sex):
+        students = {}
+        if sex == "boy":
+            words = ["M", "K", "A"]
+            number_of_student = 5
         else:
-            average = round(load_ws[words[1] + str(i+11)].value, 1)
-
-        students[load_ws[words[2] + str(i)].value] = [average, load_ws[f'{words[0]}{i+11}'].value]
-        i += 13
-    return students
-
-boys = get_student('boy')
-girls = get_student('girl')
-students_original = boys | girls
+            words = ["Z", "X", "N"]
+            number_of_student = 4
+    
+        i = 2
+        # 남학생 이름 모두 출력
+        for x in range(number_of_student): # 남학생이 5명 이므로 5번
+            if load_ws[f'{words[0]}{i+10}'].value != None:
+                average = round(load_ws[words[0] + str(i+10)].value, 1)
+            else:
+                average = round(load_ws[words[1] + str(i+11)].value, 1)
+    
+            students[load_ws[words[2] + str(i)].value] = [average, load_ws[f'{words[0]}{i+11}'].value]
+            i += 13
+        return students
+    
+    boys = get_student('boy')
+    girls = get_student('girl')
+    students_original = boys | girls
+    st.session_state.downloaded = True
 if sort_type == 'Boys & Girls':
     students = students_original
 elif sort_type == 'Average':
